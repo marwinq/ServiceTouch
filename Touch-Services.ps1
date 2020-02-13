@@ -1,23 +1,10 @@
-
-##Mass start, stop, or restart services across various servers.
+#Start, stop, or restart services en masse across various servers.
 
 #serverFile with server names separate line by line
 $serverFile ="C:\Servers.txt"
 $serviceFile="C:\Services.txt"
 
-$input = Read-Host -prompt '1) Start Services 2) Stop Services 3) Restart Service'
-
-if (($input -eq 1 ) -or ($input -eq 2 ) -or ($input -eq 3 )){
-
-    Service-Action($input)
-
-}
-
-else{
-
-"Not a valid option."
-
-}
+#Function
 
 function Service-Action{
 
@@ -58,4 +45,20 @@ foreach($serviceName in Get-Content $serviceFile){
     
     }
 }
+}
+
+#Implementation
+
+$input = Read-Host -prompt '1) Start Services 2) Stop Services 3) Restart Service'
+
+if (($input -eq 1 ) -or ($input -eq 2 ) -or ($input -eq 3 )){
+
+    Service-Action($input)
+
+}
+
+else{
+
+"Not a valid option."
+
 }
